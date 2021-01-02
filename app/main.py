@@ -6,4 +6,4 @@ app = FastAPI(title='Simple Post app')
 
 @app.get('/')
 async def start_page():
-    return {}
+    return {'key': 'value'}
