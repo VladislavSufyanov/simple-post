@@ -7,8 +7,16 @@ name = "pypi"
 fastapi = "*"
 uvicorn = "*"
 alembic = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.8"
+
+[packages.databases]
+extras = [ "postgresql",]
+
+[packages.pydantic]
+extras = [ "dotenv",]
