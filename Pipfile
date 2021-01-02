@@ -9,6 +9,8 @@ uvicorn = "*"
 alembic = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+passlib = "*"
+python-jose = "*"
 
 [dev-packages]
 
