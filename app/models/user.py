@@ -1,11 +1,11 @@
-import sqlalchemy
+from sqlalchemy import Table, Column, Integer, String
 from db.db import metadata
 
 
-users = sqlalchemy.Table(
+users = Table(
     'users',
     metadata,
-    sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column('username', sqlalchemy.String),
-    sqlalchemy.Column('password', sqlalchemy.String)
+    Column('id', Integer, primary_key=True),
+    Column('username', String(50), unique=True, nullable=False),
+    Column('password', String, nullable=False)
 )
