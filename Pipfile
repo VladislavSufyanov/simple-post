@@ -7,10 +7,10 @@ name = "pypi"
 fastapi = "*"
 uvicorn = "*"
 alembic = "*"
-sqlalchemy = "*"
-psycopg2-binary = "*"
+SQLAlchemy = "*"
 python-jose = "*"
 python-multipart = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
