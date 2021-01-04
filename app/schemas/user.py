@@ -15,3 +15,7 @@ class User(BaseUser):
 
 class ResponseUser(BaseUser):
     id: int
+
+
+class UserInDB(User, ResponseUser):
+    pass
