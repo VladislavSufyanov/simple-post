@@ -15,12 +15,12 @@ class CRUDUser(CRUD):
     async def create(self, obj_user: CreateUser) -> Optional[ResponseUser]:
         db_user = User(username=obj_user.username,
                        password=get_password_hash(obj_user.plain_password))
-        query: Insert = self.table.insert().values(**db_user.dict())
+        query: Insert = self.table.insert()
         try:
-            user_id = await db.execute(query)
+            user_id = await db.execute(query, db_user.dict())
         except UniqueViolationError:
             return
-        return ResponseUser(id=user_id, username=obj_user.username)
+        return ResponseUser(id=user_id, username=db_user.username)
 
     @staticmethod
     async def _fetch_one(query: Select) -> Optional[UserInDB]:
