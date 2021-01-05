@@ -16,7 +16,7 @@ class CRUDPosts(CRUD):
         query: Select = select([self.table.c.date_pub, self.table.c.title, self.table.c.text]). \
             select_from(self.table.join(self.related_tables['users'])). \
             where(self.related_tables['users'].c.username == username). \
-            order_by(self.table.c.date_pub.asc())
+            order_by(self.table.c.date_pub.desc())
         rows = await db.fetch_all(query)
         return [ResponsePost(**row, username=username) for row in rows]
 
