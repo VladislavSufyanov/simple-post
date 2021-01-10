@@ -27,6 +27,8 @@ def generate_token(subject: Union[str, Any], expires_delta: Optional[timedelta] 
 def decode_token(token: str) -> Optional[TokenPayload]:
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=ALGORITHM)
+        if payload.get('sub') is None:
+            return
         token_data = TokenPayload(**payload)
     except (jwt.JWTError, ValidationError):
         return

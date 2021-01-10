@@ -7,7 +7,11 @@ class BasePost(BaseModel):
     text: str
 
 
-class ResponsePost(BasePost):
+class PostID(BaseModel):
+    id: int
+
+
+class ResponsePost(BasePost, PostID):
     username: str
     date_pub: datetime
 
@@ -16,6 +20,5 @@ class CreatePost(BasePost):
     user_id: int
 
 
-class PostInDB(CreatePost):
-    id: int
-    date_publication: datetime
+class PostInDB(CreatePost, PostID):
+    date_pub: datetime
